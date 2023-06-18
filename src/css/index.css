@@ -269,11 +269,15 @@ html {
   justify-content: space-around;
   gap: 40px;
   padding: 50px 40px;
+  position: relative;
 
   background-color: var(--container);
+  z-index: 3;
+  overflow: hidden;
 }
 .feature-container:nth-child(2n+1) {
   background-color: var(--container-sec);
+  z-index: 3;
 }
 .feature-container .focal-image img {
   width: 350px;
@@ -281,6 +285,17 @@ html {
   object-fit: contain;
   border-radius: 5px;
   filter: brightness(1.2);
+  position: relative;
+}
+.feature-container .focal-image::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 100px rgba(255, 255, 255, 0.1);
+  opacity: 0.1;
 }
 .feature-container .content {
   display: block;
